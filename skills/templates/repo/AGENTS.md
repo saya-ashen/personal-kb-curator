@@ -9,7 +9,9 @@ Read in this order before reorganizing or incrementally updating:
 3. `docs/kb-update-policy.md`
 4. `docs/kb-dedup-rules.md`
 5. `docs/kb-query-policy.md`
-6. index and change log files if present
+6. `docs/kb-research-profile.md` when present
+7. index files such as `00_index/master-index.md`, `00_index/topic-map.md`, `00_index/source-watchlist.md`, and `00_index/recent-intake.md` when present
+8. change log files if present
 
 Defaults:
 
@@ -18,3 +20,7 @@ Defaults:
 - archive rather than delete when uncertain
 - avoid full rebuilds for incremental updates
 - do not read the full repository for Q&A unless explicitly requested
+
+Additional default for research-discovery workflows:
+
+- infer active focus from the compact index layer before opening canonical notes

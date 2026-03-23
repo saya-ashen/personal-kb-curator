@@ -5,40 +5,27 @@ agent: build
 
 Incrementally update the current knowledge base using only: $1
 
-Before making any changes:
+**Execution Rules:**
 
-1. Read `AGENTS.md`
-2. Read `docs/kb-policy.md`
-3. Read `docs/kb-structure.md`
-4. Read `docs/kb-update-policy.md`
-5. Read `docs/kb-dedup-rules.md`
-6. Read `docs/kb-query-policy.md` when present
-7. Read `00_index/master-index.md` and `00_index/change-log.md` when present
-8. If a repository-local knowledge curation skill is available, follow it
+1. Read the local `AGENTS.md` first to locate the repository's policy files.
+2. Read the local `docs/kb-update-policy.md` and `docs/kb-dedup-rules.md`.
+3. Classify and handle each new item **strictly according to the definitions and
+   actions defined in those local rule files**.
+4. For file writing operations, follow `skills/references/update-protocol.md`.
 
-Only process the files or directory specified in `$1`.
-Do not rebuild the whole repository unless explicitly requested.
+Only process the files or directory specified in `$1`. Do not rebuild the whole
+repository unless explicitly requested.
 
-Classify each new item as:
-
-- duplicate
-- near_duplicate
-- supplement
-- conflict
-- new_topic
-
-Handle them as follows:
-
-- duplicate: keep out of active content and mark for archive or recycle
-- near_duplicate: merge only the useful delta into the canonical asset
-- supplement: enrich the relevant canonical asset or topic note
-- conflict: preserve both claims, keep source context, and flag for review
-- new_topic: create a new canonical note or asset in the correct directory
+Follow `skills/references/update-protocol.md` for target selection, write
+classes, and required compact-layer refreshes.
 
 Update where applicable:
 
 - canonical notes or core assets
 - master index
+- topic map
+- source watchlist
+- recent intake ledger
 - source mapping
 - change log
 
@@ -51,3 +38,4 @@ Return:
 - archived or recycled items
 - unresolved conflicts or uncertainties
 - concise change summary
+- any compact-layer files refreshed to keep future discovery bounded

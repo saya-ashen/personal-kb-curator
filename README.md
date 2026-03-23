@@ -15,6 +15,9 @@ Typical situations include:
   and needs **incremental ingestion and merging**.
 - You want an assistant to answer questions by **preferring curated canonical
   assets** instead of scanning the whole repository.
+- You want an agent to discover new papers, repos, posts, or tracked sources by
+  first reading compact repository indexes instead of re-reading the whole
+  knowledge base.
 - You want explicit rules for “keep / archive / recycle / merge / flag
   conflicts” so the decision model stays stable over time.
 
@@ -37,6 +40,17 @@ In practice, that means the skill emphasizes:
 - maintainability for future assistants, not just a one-time cleanup
 
 ## Main use cases
+
+### 0. Research discovery and staged merge
+
+When the repository already captures your themes, this skill can support a
+research-curation agent that:
+
+- infers active focus from `AGENTS.md`, `docs/`, and `00_index/` compact files
+- finds relevant new external items without scanning the whole repository
+- ranks candidates by fit, novelty, and likely reuse value
+- stages additions before handing durable writes to `commands/kb-update.md`
+
 
 ### 1. Repository bootstrap
 
@@ -271,3 +285,10 @@ For a Chinese version of this repository guide, see
 
 This repository does not currently include a separate license file. If you plan
 to distribute it publicly, add an explicit `LICENSE`.
+
+
+## Commands
+
+- `kb-ask`: answer bounded questions against the curated repository
+- `kb-update`: merge specified new material into the repository
+- `kb-curate`: discover, screen, stage, and optionally apply new external research items using compact repository anchors

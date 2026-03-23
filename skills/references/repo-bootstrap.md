@@ -15,10 +15,14 @@ Generate these when ongoing maintenance is expected:
 - `docs/kb-update-policy.md`
 - `docs/kb-dedup-rules.md`
 - `docs/kb-query-policy.md`
+- `docs/kb-research-profile.md` when discovery or monitoring is expected
 
 Optional index files:
 
 - `<index_dir>/master-index.md`
+- `<index_dir>/topic-map.md`
+- `<index_dir>/source-watchlist.md`
+- `<index_dir>/recent-intake.md`
 - `<index_dir>/change-log.md`
 
 ## Optional platform adapters
@@ -71,3 +75,22 @@ repository's actual structure, directory names, and asset families.
 Keep `AGENTS.md` compact and push detail into the docs policy files. Later
 commands should read `AGENTS.md` first, then only the policy files needed for
 the task.
+
+## Discovery-friendly compact layer
+
+When the repository will be used for proactive research discovery, add a compact
+layer so future agents can infer current focus without scanning many canonical
+notes.
+
+Recommended files:
+
+- `docs/kb-research-profile.md`: active priorities, exclusions, tracked
+  entities, and update targets
+- `00_index/topic-map.md`: topic routing map from themes to canonical files
+- `00_index/source-watchlist.md`: tracked authors, venues, repos, feeds, and
+  standing search seeds
+- `00_index/recent-intake.md`: staging area for candidate additions before full
+  merge
+
+The compact layer should be cheap to read and must be updated when new topics,
+new tracked entities, or new staged candidates are introduced.

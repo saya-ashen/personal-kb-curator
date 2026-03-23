@@ -15,3 +15,10 @@ Also define:
 - recycle location
 - index location
 - change-log location
+
+## Governing principles
+
+- prefer future reuse over historical clutter
+- preserve provenance and source traceability
+- favor canonical assets over scattered drafts
+- archive uncertainty rather than silently deleting or overwriting

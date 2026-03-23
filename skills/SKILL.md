@@ -12,13 +12,6 @@ Turn scattered files into maintainable knowledge assets.
 This skill acts as a router to the following execution commands. **The actual
 rules and workflows are defined in the target repository's `docs/` layer.**
 
-- **`kb-ask`**: Answer bounded questions against the curated repository.
-  (Triggers for Q&A)
-- **`kb-update`**: Merge specified new material into the repository. (Triggers
-  for incremental maintenance)
-- **`kb-curate`**: Discover, screen, stage, and optionally apply new external
-  research items. (Triggers for proactive research)
-
 ## Supporting resources (For initial bootstrap only)
 
 If the target repository does not have a rule layer (no `AGENTS.md` or `docs/`),

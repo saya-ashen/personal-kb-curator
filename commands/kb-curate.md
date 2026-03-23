@@ -15,8 +15,6 @@ knowledge base: $1.
    active focus.
 2. Read index files (like `topic-map.md`, `source-watchlist.md`) only as needed
    to verify targets.
-3. Operate in the requested mode (discover, draft, or apply) and follow
-   `skills/references/update-protocol.md` for durable writes.
 
 Operate in one of these modes based on the user request:
 
@@ -30,7 +28,6 @@ Rules:
 - infer active focus from the compact rule and index layer first
 - only open a small, relevant subset of canonical assets when grounding is
   required
-- for durable writes, follow `skills/references/update-protocol.md`
 - do not call other commands; this command is the user entry point and
   `research-curator` is the executor
 

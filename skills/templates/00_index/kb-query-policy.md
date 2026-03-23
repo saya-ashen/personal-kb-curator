@@ -29,6 +29,7 @@ Default first pass:
 
 - read the index layer
 - read 3 to 5 candidate canonical assets
+- read only compact summaries for intake and change logs first
 
 Expand only when needed:
 
@@ -36,6 +37,8 @@ Expand only when needed:
 - state why expansion is needed
 - prefer adjacent canonicals or directly referenced supporting notes
 - do not broaden into repository-wide search without user approval
+- do not open historical log archives unless the question is explicitly
+  historical
 
 ## Source priority
 
@@ -62,6 +65,14 @@ Use sources in this order:
 - cite the canonical source when possible
 - when multiple sources are needed, cite the minimal sufficient set
 - label historical or superseded sources as such when used
+
+## Compact file usage defaults
+
+- prefer `topic-map` and current canonical assets over large historical logs
+- if `recent-intake` is needed, use the active list first and read archived
+  months only when unresolved context is required
+- if change history is needed, start from the latest monthly log and expand only
+  when evidence is still missing
 
 ## Conflict handling
 

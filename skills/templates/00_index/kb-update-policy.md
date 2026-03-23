@@ -105,3 +105,21 @@ Refresh any impacted compact files:
 - `00_index/recent-intake.md` when candidates are staged, approved, or resolved
 - `00_index/change-log.md` when a durable repository change is made
 - `00_index/master-index.md` when canonical asset inventory changes materially
+
+## Token-economy guards for compact files
+
+Apply these defaults unless the repository defines stricter limits:
+
+- `00_index/recent-intake.md`: keep only the most recent 50 active rows
+  (`candidate` or `approved`); move older or resolved entries to archived monthly
+  files (for example `00_index/archive/recent-intake-YYYY-MM.md`)
+- `00_index/topic-map.md`: keep one-line entries per topic; include one primary
+  canonical path and at most two supporting paths
+- `00_index/source-watchlist.md`: keep only active tracked entities and standing
+  searches; remove or archive stale entries during periodic cleanup
+- `00_index/change-log.md`: keep this file as a short pointer to recent monthly
+  logs; store detailed history in monthly files (for example
+  `00_index/change-log/YYYY-MM.md`)
+
+When a compact file grows large, prefer rollover or archive over in-place
+expansion.

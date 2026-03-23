@@ -20,6 +20,8 @@ Defaults:
 - archive rather than delete when uncertain
 - avoid full rebuilds for incremental updates
 - do not read the full repository for Q&A unless explicitly requested
+- keep compact index files short; roll older intake and log history into archive
+  files
 
 Additional default for research-discovery workflows:
 

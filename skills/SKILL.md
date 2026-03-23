@@ -45,6 +45,24 @@ Before updating, read rule files if present (agent guide, policy docs, structure
 
 Then classify incoming items and update only affected canonical assets.
 
+### Query-time retrieval
+
+Use for user questions asked after the repository has been curated.
+
+Before answering, enforce bounded retrieval:
+
+1. Read rule files in this order when present: `AGENTS.md`, `docs/kb-policy.md`, `docs/kb-structure.md`, `docs/kb-query-policy.md`.
+2. Route from index first (`00_index/master-index.md` or repository-defined index).
+3. Read only likely relevant canonical assets for the first pass (small bounded set).
+4. Expand reads incrementally only when evidence is insufficient.
+5. Cite source paths used in the answer and mark uncertainty or conflicts explicitly.
+
+Default behavior for questions:
+
+- do not read the full repository unless explicitly requested
+- prioritize canonical assets over drafts or archived material
+- when writing assistance is requested, ground generated content in retrieved canonical sources
+
 ## Output contract
 
 When practical, produce:
@@ -63,6 +81,7 @@ For maintainable repositories, create concise anchors:
 - structure document
 - update policy document
 - dedup rules document
+- query policy document
 
 Use `references/repo-bootstrap.md` and `templates/repo/`.
 

@@ -12,8 +12,9 @@ Before making any changes:
 3. Read `docs/kb-structure.md`
 4. Read `docs/kb-update-policy.md`
 5. Read `docs/kb-dedup-rules.md`
-6. Read `00_index/master-index.md` and `00_index/change-log.md` when present
-7. If a repository-local knowledge curation skill is available, follow it
+6. Read `docs/kb-query-policy.md` when present
+7. Read `00_index/master-index.md` and `00_index/change-log.md` when present
+8. If a repository-local knowledge curation skill is available, follow it
 
 Only process the files or directory specified in `$1`.
 Do not rebuild the whole repository unless explicitly requested.

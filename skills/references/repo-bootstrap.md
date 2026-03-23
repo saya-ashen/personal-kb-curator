@@ -14,6 +14,7 @@ Generate these when ongoing maintenance is expected:
 - `docs/kb-structure.md`
 - `docs/kb-update-policy.md`
 - `docs/kb-dedup-rules.md`
+- `docs/kb-query-policy.md`
 
 Optional index files:
 
@@ -33,6 +34,7 @@ Keep it short. It should tell a future agent:
 2. which files to read first
 3. which files define the detailed policy
 4. that incremental updates should not rebuild the entire repository by default
+5. where question-answer retrieval rules are defined
 
 ## Policy file responsibilities
 
@@ -53,6 +55,11 @@ and summary format.
 ### kb-dedup-rules.md
 
 Duplicate, near-duplicate, version-chain, supplement, and conflict rules.
+
+### kb-query-policy.md
+
+Question-answer retrieval procedure, retrieval bounds, preferred source order,
+citation requirements, and conflict handling rules.
 
 ## Adaptation rule
 

@@ -1,19 +1,27 @@
 # personal-kb-curator
 
-A Codex skill repository for **organizing, deduplicating, curating, and continuously maintaining a personal knowledge base or document library**.
+A skill repository for **organizing, deduplicating, curating, and continuously
+maintaining a personal knowledge base or document library**.
 
-Use it when you need to turn a messy pile of notes, PDFs, screenshots, drafts, and repeated versions into a reusable knowledge system instead of a one-off cleanup.
+Use it when you need to turn a messy pile of notes, PDFs, screenshots, drafts,
+and repeated versions into a reusable knowledge system instead of a one-off
+cleanup.
 
 Typical situations include:
 
-- A folder is full of notes, screenshots, PDFs, drafts, and repeated versions, and you want to turn it into a maintainable knowledge base.
-- You already have a knowledge base structure, but new material keeps arriving and needs **incremental ingestion and merging**.
-- You want an assistant to answer questions by **preferring curated canonical assets** instead of scanning the whole repository.
-- You want explicit rules for “keep / archive / recycle / merge / flag conflicts” so the decision model stays stable over time.
+- A folder is full of notes, screenshots, PDFs, drafts, and repeated versions,
+  and you want to turn it into a maintainable knowledge base.
+- You already have a knowledge base structure, but new material keeps arriving
+  and needs **incremental ingestion and merging**.
+- You want an assistant to answer questions by **preferring curated canonical
+  assets** instead of scanning the whole repository.
+- You want explicit rules for “keep / archive / recycle / merge / flag
+  conflicts” so the decision model stays stable over time.
 
 ## Goals
 
-The purpose of this skill is not just to “move files around.” It is designed to turn scattered material into:
+The purpose of this skill is not just to “move files around.” It is designed to
+turn scattered material into:
 
 1. **Reusable canonical knowledge assets**
 2. **An inventory with explicit status and actions**
@@ -51,7 +59,8 @@ When a knowledge base already exists and new files arrive, this skill helps you:
 
 ### 3. Query-time retrieval
 
-When users ask questions against an already curated repository, this skill encourages:
+When users ask questions against an already curated repository, this skill
+encourages:
 
 - reading the rule layer first
 - routing from the index before reading source files
@@ -65,7 +74,8 @@ This repository packages a knowledge-curation decision model.
 
 ### Classification labels
 
-When incoming or existing material is clustered, items typically fall into one of these relationship types:
+When incoming or existing material is clustered, items typically fall into one
+of these relationship types:
 
 - `duplicate`: materially the same asset with trivial differences
 - `near_duplicate`: mostly the same asset with useful deltas
@@ -78,7 +88,8 @@ When incoming or existing material is clustered, items typically fall into one o
 
 - **duplicate**: archive or recycle it; do not keep it in active content
 - **near_duplicate**: merge only the meaningful delta into the canonical asset
-- **version_chain**: keep the strongest newest version active and archive older ones
+- **version_chain**: keep the strongest newest version active and archive older
+  ones
 - **supplement**: keep it as supporting material linked to the canonical asset
 - **conflict**: preserve the conflict and flag it explicitly for review
 - **new_topic**: create a new canonical note or topic asset
@@ -117,21 +128,25 @@ When incoming or existing material is clustered, items typically fall into one o
 This is the primary skill definition. It describes:
 
 - when the skill should trigger
-- the three operating modes: bootstrap, incremental maintenance, and query-time retrieval
+- the three operating modes: bootstrap, incremental maintenance, and query-time
+  retrieval
 - the expected output contract
 - the recommended reading order and working style
 
 ### `skills/references/decision-model.md`
 
-Defines classification labels, canonical selection priorities, action mappings, and safety rules.
+Defines classification labels, canonical selection priorities, action mappings,
+and safety rules.
 
 ### `skills/references/schemas.md`
 
-Defines recommended fields for inventory items and canonical assets so outputs stay consistent.
+Defines recommended fields for inventory items and canonical assets so outputs
+stay consistent.
 
 ### `skills/references/repo-bootstrap.md`
 
-Guides repository bootstrap by describing the rule-layer files that should be created, including:
+Guides repository bootstrap by describing the rule-layer files that should be
+created, including:
 
 - `AGENTS.md`
 - `docs/kb-policy.md`
@@ -166,7 +181,8 @@ Defines the expected behavior of the incremental update command, including:
 1. Inventory the current material collection.
 2. Cluster items by topic and relationship.
 3. Create or synthesize canonical assets for high-value topics.
-4. Separate the remaining material into supporting / archive / recycle categories.
+4. Separate the remaining material into supporting / archive / recycle
+   categories.
 5. Initialize the rule layer and index.
 6. Record the work in a change log for future incremental maintenance.
 
@@ -182,7 +198,8 @@ Defines the expected behavior of the incremental update command, including:
 
 1. Read the repository rule layer first.
 2. Route from the index.
-3. Open only a small number of highly relevant canonical assets on the first pass.
+3. Open only a small number of highly relevant canonical assets on the first
+   pass.
 4. Expand reads only if evidence is still insufficient.
 5. Cite sources clearly and mark uncertainty or conflicts in the answer.
 
@@ -194,50 +211,63 @@ When this skill is used to curate a repository, it commonly produces:
 - **Canonical Notes / Assets**: the primary reusable knowledge artifacts
 - **Reorganization Map**: a map of how files were moved or grouped
 - **Change Log**: a record of what was updated in a given pass
-- **Repository Rule Layer**: the files that make future maintenance and retrieval repeatable
+- **Repository Rule Layer**: the files that make future maintenance and
+  retrieval repeatable
 
 ## How to use it
 
 ### Use it as a skill
 
-If your Codex / agent environment supports local skill repositories, this skill is a good fit for prompts such as:
+If your agent environment supports local skill repositories, this skill is a
+good fit for prompts such as:
 
 - “Help me turn this folder of material into a usable knowledge base.”
-- “These notes contain many repeated versions; curate them into canonical assets.”
+- “These notes contain many repeated versions; curate them into canonical
+  assets.”
 - “Incrementally merge this new batch of PDFs into the existing knowledge base.”
-- “Answer questions from this curated repository, but do not scan the whole repo.”
+- “Answer questions from this curated repository, but do not scan the whole
+  repo.”
 
 ### Use it as a methodology reference
 
-Even if you do not load it directly as a skill, you can still reuse the approach by:
+Even if you do not load it directly as a skill, you can still reuse the approach
+by:
 
 - referencing the classification model and schemas in `references/`
 - reusing the templates in `templates/`
-- adapting `commands/kb-update.md` into your own incremental maintenance workflow
+- adapting `commands/kb-update.md` into your own incremental maintenance
+  workflow
 
 ## Design characteristics
 
 This repository is designed around the following priorities:
 
-- **Maintainability first**: optimize for future incremental maintenance, not just initial cleanup
-- **Bounded retrieval**: limit repository reads during Q&A to reduce cost and noise
+- **Maintainability first**: optimize for future incremental maintenance, not
+  just initial cleanup
+- **Bounded retrieval**: limit repository reads during Q&A to reduce cost and
+  noise
 - **Visible conflicts**: do not silently collapse contradictory source material
-- **Template-based outputs**: make the curation method portable across repositories
-- **Agent handoff support**: use a rule layer so future assistants can continue the work reliably
+- **Template-based outputs**: make the curation method portable across
+  repositories
+- **Agent handoff support**: use a rule layer so future assistants can continue
+  the work reliably
 
 ## Possible next steps
 
 If you want to extend this skill further, useful additions could include:
 
 - more concrete example input / output repository layouts
-- specialized handling strategies for PDFs, web clippings, meeting notes, and research notes
+- specialized handling strategies for PDFs, web clippings, meeting notes, and
+  research notes
 - scripts that generate inventory records or source mappings automatically
 - a richer citation policy for query-time answers
 
 ## Chinese version
 
-For a Chinese version of this repository guide, see [`README.cn.md`](./README.cn.md).
+For a Chinese version of this repository guide, see
+[`README.cn.md`](./README.cn.md).
 
 ## License
 
-This repository does not currently include a separate license file. If you plan to distribute it publicly, add an explicit `LICENSE`.
+This repository does not currently include a separate license file. If you plan
+to distribute it publicly, add an explicit `LICENSE`.

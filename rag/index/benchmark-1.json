@@ -1,0 +1,89 @@
+{
+  "run_started_at": "2026-03-26T09:27:39.263138+00:00",
+  "workspace_root": "/home/saya/Workspace/personal-kb-curator",
+  "benchmark_workspace": null,
+  "benchmark_workspace_retained": false,
+  "target_size": 1,
+  "executed_size": 1,
+  "sampled": false,
+  "soak_mode": false,
+  "non_blocking_evidence": false,
+  "machine": {
+    "hostname": "elaina",
+    "platform": "Linux-6.18.18-x86_64-with-glibc2.42",
+    "python": "3.13.12",
+    "cpu_count": 16,
+    "memory_gb": 13.34,
+    "storage_classification": "non-rotational-detected",
+    "baseline_spec": {
+      "cpu_cores": 8,
+      "memory_gb": 32,
+      "storage": "NVMe SSD"
+    }
+  },
+  "metrics": {
+    "index_duration_seconds": 0.000554,
+    "ingest_throughput_docs_per_min": 981.342,
+    "retrieval_p95_seconds": null,
+    "retrieval_p99_seconds": null
+  },
+  "gate_context": {
+    "target_size": 1,
+    "executed_size": 1,
+    "mode": "full",
+    "sample_size_override": null,
+    "soak_mode": false,
+    "spec_gate_profile": "10k_acceptance",
+    "spec_gates_applicable": false
+  },
+  "threshold_checks": {
+    "index_duration_le_45m": {
+      "applicable": false,
+      "passed": null,
+      "reason": "full 10k run required for acceptance gate"
+    },
+    "ingest_throughput_ge_20_docs_per_min": {
+      "applicable": false,
+      "passed": null,
+      "reason": "requires ingest throughput threshold and zero ingest failures"
+    },
+    "retrieval_p95_lt_1_5s": {
+      "applicable": false,
+      "passed": null,
+      "reason": "retrieval p95 unavailable"
+    },
+    "retrieval_p99_lt_2_5s": {
+      "applicable": false,
+      "passed": null,
+      "reason": "retrieval p99 unavailable"
+    }
+  },
+  "details": {
+    "ingest": {
+      "seconds": 0.061141,
+      "docs_attempted": 1,
+      "docs_ingested": 1,
+      "docs_per_minute": 981.342,
+      "failures": []
+    },
+    "index": {
+      "seconds": 0.000554,
+      "ok": false,
+      "error": "ModuleNotFoundError: No module named 'zvec'"
+    },
+    "retrieval": {
+      "runs": 1,
+      "completed_runs": 0,
+      "p95_seconds": null,
+      "p99_seconds": null,
+      "errors": [
+        "run-0: ModuleNotFoundError: No module named 'zvec'"
+      ]
+    }
+  },
+  "known_gaps": [
+    "10k acceptance gates are not applicable for this run context.",
+    "Index build failed; retrieval thresholds are not representative.",
+    "Retrieval benchmark encountered errors before full run count."
+  ]
+}
